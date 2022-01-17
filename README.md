@@ -4,7 +4,16 @@ A script to enable customers of lazy ISPs to perform measurement campaigns of th
 
 ## Usage
 
-Create a `config` folder and a `config.cfg`.
+Create a `mkdir config` folder and a `config.cfg` file.
+
+Example config.cfg:
+```
+timezone=Europe/Berlin
+crontab=* */2 * * *
+run_once=true
+run_on_startup=true
+```
+
 Create a folder for the measurement results `mkdir messprotokolle`.
 
 For the cronjob you can use [this website](https://crontab-generator.org/).
@@ -16,14 +25,6 @@ The default timezone is UTC.
 The broadband measurement can run once or automated via cron.
 For a one-time measurement set the value in the config to true.
 
-
-Example Configuration:
-```
-timezone=Europe/Berlin
-crontab=* */2 * * *
-run_once=true
-run_on_startup=true
-```
 
 
 Just run:
