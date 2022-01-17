@@ -41,7 +41,7 @@ or
 ```
 docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/export/ --name "breitbandmessung" shneezin/breitbandmessung
 ```
-for the Alpine Container. __
+for the Alpine Container. 
 
 If you want to use the Debian Container, use the following command:
 ```
