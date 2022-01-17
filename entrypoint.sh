@@ -17,6 +17,10 @@ ln -s /usr/share/zoneinfo/$TZ /etc/localtime
 echo "Run on startup: ${RUN_ON_STARTUP}"
 if [ "$RUN_ON_STARTUP" = "true" ]; then
     /usr/local/bin/node /usr/src/app/index.js
+    if [ "$RUN_ONCE" = "true" ]; then
+    echo "Exiting..."
+    exit 0
+    fi
 fi
 
 echo "Run once: ${RUN_ONCE}"
