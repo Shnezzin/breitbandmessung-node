@@ -33,7 +33,7 @@ Just run:
 git clone https://github.com/shneezin/breitbandmessung.git && cd breitbandmessung
 sudo ./create.sh alpine or debian
 ```
-The Debian Container is available for the amd64, arm64 or arm/v/7 architecture.
+The Debian Container is available for the amd64, arm64 or arm/v7 architecture.
 The Alpine Container is available for the amd64 and arm64 architecture.
 
 or 
