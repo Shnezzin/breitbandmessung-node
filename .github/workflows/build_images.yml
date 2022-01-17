@@ -46,6 +46,7 @@ jobs:
           push: true
           tags: |
             shneezin/breitbandmessung:latest
+            shneezin/breitbandmessung:alpine
             shneezin/breitbandmessung:${{ github.sha }}
           platforms: linux/amd64, linux/arm64/v8
           build-args: |
@@ -61,7 +62,7 @@ jobs:
           push: true
           file: Dockerfile.debian
           tags: |
-            shneezin/breitbandmessung:arm
+            shneezin/breitbandmessung:debian
             shneezin/breitbandmessung:${{ github.sha }}
           platforms: linux/arm/v7, linux/amd64, linux/arm64/v8
           build-args: |
