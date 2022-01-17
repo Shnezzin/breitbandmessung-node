@@ -33,16 +33,16 @@ git clone https://github.com/shneezin/breitbandmessung.git && cd breitbandmessun
 sudo ./create.sh alpine or debian
 ```
 The Debian Container is available for the amd64, arm64 or arm/v/7 architecture.
-The Alpine container is available for the amd64 and arm64 architecture.
+The Alpine Container is available for the amd64 and arm64 architecture.
 
 or 
 
 ```
 docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/export/ --name "breitbandmessung" shneezin/breitbandmessung
 ```
-for the alpine Container.
+for the Alpine Container.
 
-If you want to use the Debian container, use the following command:
+If you want to use the Debian Container, use the following command:
 ```
 docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/export/ --name "breitbandmessung" shneezin/breitbandmessung:debian
 ```
