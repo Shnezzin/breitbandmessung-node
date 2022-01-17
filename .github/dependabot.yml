@@ -1,3 +1,5 @@
+
+  
 # To get started with Dependabot version updates, you'll need to specify which
 # package ecosystems to update and where the package manifests are located.
 # Please see the documentation for all configuration options:
@@ -5,7 +7,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: npm
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: daily
@@ -13,7 +15,7 @@ updates:
     labels:
       - dependencies
       
-- package-ecosystem: npm
+  - package-ecosystem: "npm"
     directory: "/puppeteer_build"
     schedule:
       interval: daily
