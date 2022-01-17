@@ -4,7 +4,7 @@ A script to enable customers of lazy ISPs to perform measurement campaigns of th
 
 ## Usage
 
-Create a `mkdir config` folder and a `config.cfg` file.
+Create a `config` folder and a `config.cfg` file.
 
 Example config.cfg:
 ```
