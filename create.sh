@@ -4,7 +4,7 @@ if [ $# -eq 0 ]; then
        me=`basename "$0"`
   echo "help:"
   echo "$me debian|alpine" 
-  echo "Use '$me debian' for amd64, arm64 or arm/v/7 build" 
+  echo "Use '$me debian' for amd64, arm64 or arm/v7 build" 
   echo "Use '$me alpine' for amd64 or arm64 build" 
   exit 0
 fi
@@ -20,7 +20,7 @@ else
        me=`basename "$0"`
   echo "help:"
   echo "$me debian|alpine" 
-  echo "Use '$me debian' for amd64, arm64 or arm/v/7 build" 
+  echo "Use '$me debian' for amd64, arm64 or arm/v7 build" 
   echo "Use '$me alpine' for amd64 or arm64 build" 
   exit 0
 fi
