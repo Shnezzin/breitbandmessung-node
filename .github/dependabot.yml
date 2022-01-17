@@ -12,3 +12,11 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - dependencies
+      
+- package-ecosystem: npm
+    directory: "/puppeteer_build"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
