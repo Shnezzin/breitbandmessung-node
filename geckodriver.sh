@@ -1,17 +1,15 @@
 #!/bin/sh
-json=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest)
-os=$(uname -s)
 arch=$(uname -m)
 if [ $os = "Linux" ] ; then
     case "$arch" in
         i386 | i486 | i786 | x86)
-            url=$(echo "$json" | jq -r '.assets[].browser_download_url | select(contains("linux32"))')
+            url=https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux32.tar.gz
             ;;        
         x86_64 | x86-64 | x64 | amd64)
-            url=$(echo "$json" | jq -r '.assets[].browser_download_url | select(contains("linux64"))')
+            url=https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
             ;;
         xscale | arm | armv61 | armv71 | armv81 | aarch64)
-            url=$(echo "$json" | jq -r '.assets[].browser_download_url | select(contains("arm7hf"))')
+            url=https://github.com/shneezin/breitbandmessung/raw/dev/geckodriver-v0.30.0-linuxarm32.tar.gz
             ;;
         *)
             echo Architecture not supported: $arch
@@ -19,7 +17,7 @@ if [ $os = "Linux" ] ; then
             ;;
     esac
 elif [ $os = "Darwin" ] ; then
-    url=$(echo "$json" | jq -r '.assets[].browser_download_url | select(contains("macos"))')
+    url=https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-macos.tar.gz
 fi
 
 if [ -z $url ] ; then
