@@ -78,7 +78,7 @@ jobs:
           push: true
           tags: |
             shneezin/breitbandmessung:dev
-          platforms: inux/amd64
+          platforms: linux/amd64
           build-args: |
             COMMIT_SHA=${{ github.sha }}
             BRANCH=${{ env.GIT_BRANCH }}
