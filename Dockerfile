@@ -4,7 +4,12 @@ FROM node:16.13.2-alpine
 WORKDIR /usr/src/app
 
 RUN apk update && apk add --no-cache \
-    gcc musl-dev python3-dev libffi-dev openssl-dev cargo \
+    gcc \
+    musl-dev \
+    python3-dev \
+    libffi-dev \
+    openssl-dev \
+    cargo \
     python3 \
     py3-pip \
     bash \
@@ -12,9 +17,14 @@ RUN apk update && apk add --no-cache \
     libressl-dev \
     musl-dev \
     libffi-dev \
+    curl \
+    jq \
     tini
 
 RUN rm -rf /var/cache/apk/*
+
+COPY geckodriver.sh .
+RUN ./geckodriver.sh
 
 RUN pip3 install \
      selenium \
