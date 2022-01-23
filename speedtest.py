@@ -38,7 +38,7 @@ upload_unit = '.col-md-12 > div:nth-child(1) > div:nth-child(1) > div:nth-child(
 #Open browser an testpage breitbandmessung.de/test
 print("Open Browser")
 fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.headless = False
+fireFoxOptions.headless = True
 fireFoxOptions.set_preference("browser.download.folderList", 2)
 fireFoxOptions.set_preference("browser.download.manager.showWhenStarting",False)
 fireFoxOptions.set_preference("browser.download.dir", DOWNLOADED_PATH)
