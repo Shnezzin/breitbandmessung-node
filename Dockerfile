@@ -3,11 +3,9 @@ FROM alpine:3.15
 # Create app directory
 WORKDIR /usr/src/app
 
-RUN \
-    echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories && \
-    echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
-
-
+#RUN \
+#    echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories && \
+#    echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
 
 RUN apk update && apk add --no-cache \
     gcc \
