@@ -10,7 +10,6 @@ RUN apk update && apk add --no-cache \
     libffi-dev \
     openssl-dev \
     cargo \
-    python3 \
     py3-pip \
     bash \
     firefox-esr \
