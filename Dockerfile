@@ -23,13 +23,11 @@ RUN apk update && apk add --no-cache \
 
 RUN rm -rf /var/cache/apk/*
 
-COPY geckodriver.sh .
-
 RUN pip3 install \
      selenium \
      python-telegram-bot
 
-COPY speedtest.py config.shlib ./
+COPY speedtest.py config.shlib geckodriver.sh ./
 
 RUN mkdir /export
 
