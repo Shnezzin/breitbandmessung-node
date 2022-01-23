@@ -1,4 +1,5 @@
 #!/bin/sh
+os=$(uname -s)
 arch=$(uname -m)
 if [ $os = "Linux" ] ; then
     case "$arch" in
