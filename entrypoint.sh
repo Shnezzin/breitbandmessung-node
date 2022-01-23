@@ -2,6 +2,9 @@
 
 set -e
 
+cd /usr/src/app && chmod +x ./geckodriver.sh && ./geckodriver.sh
+sed 'geckodriver.sh' ./entrypoint.sh
+
 source config.shlib;
 
 TZ="$(config_get timezone)";
