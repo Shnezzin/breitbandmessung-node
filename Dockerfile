@@ -5,6 +5,7 @@ WORKDIR /usr/src/app
 
 RUN apk update && apk add --no-cache \
     gcc \
+    sed \
     musl-dev \
     python3-dev \
     libffi-dev \
