@@ -4,36 +4,26 @@ FROM node:16.13.2-alpine
 WORKDIR /usr/src/app
 
 RUN apk update && apk add --no-cache \
-    procps \
-    procps \
-    chromium \      
-    harfbuzz \
-    ca-certificates \
-    ttf-freefont \
-    freetype \
-    nss \
+    gcc musl-dev python3-dev libffi-dev openssl-dev cargo \
+    python3 \
+    py3-pip \
     bash \
-    yarn \
+    firefox-esr \
+    libressl-dev \
+    musl-dev \
+    libffi-dev \
     tini
 
 RUN rm -rf /var/cache/apk/*
-    
-ENV DISTRO=alpine
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-# Install Puppeteer under /node_modules so it's available system-wide
-ADD ./puppeteer_build/package.json ./puppeteer_build/yarn.lock /
-RUN yarn install
+RUN pip3 install \
+     selenium \
+     python-telegram-bot
 
-COPY package.json yarn.lock index.js  config.cfg.defaults config.shlib ./
+COPY speedtest.py config.shlib ./
 
 RUN mkdir /export
-
-RUN yarn install
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["tini", "--", "docker-entrypoint.sh"]
-#ENTRYPOINT ["tail"]
-#CMD ["-f","/dev/null"]
