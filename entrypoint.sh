@@ -16,7 +16,7 @@ ln -s /usr/share/zoneinfo/$TZ /etc/localtime
 
 echo "Run on startup: ${RUN_ON_STARTUP}"
 if [ "$RUN_ON_STARTUP" = "true" ]; then
-    /usr/local/bin/node /usr/src/app/index.js
+    python3 /usr/src/app/speedtest.py
     if [ "$RUN_ONCE" = "true" ]; then
     echo "Exiting..."
     exit 0
@@ -30,7 +30,7 @@ echo "Setting cron schedule: ${CRON_SCHEDULE}"
 echo "${CRON_SCHEDULE} /bin/bash -c 'python3 /usr/src/app/speedtest.py' > /proc/1/fd/1 2>/proc/1/fd/2" | crontab -
 crond -f
 else
-node /usr/src/app/index.js
+python3 /usr/src/app/speedtest.py
 echo "Exiting..."
 exit 0
 fi
