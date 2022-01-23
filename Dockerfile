@@ -24,7 +24,7 @@ RUN apk update && apk add --no-cache \
 RUN rm -rf /var/cache/apk/*
 
 COPY geckodriver.sh .
-RUN ./geckodriver.sh
+RUN chmod +x ./geckodriver.sh && ./geckodriver.sh
 
 RUN pip3 install \
      selenium \
