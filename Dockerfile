@@ -23,7 +23,7 @@ RUN apk update && apk add --no-cache \
 
 RUN rm -rf /var/cache/apk/*
 
-RUN pip3 install \
+RUN pip3 install --no-cache-dir \
      selenium \
      python-telegram-bot
 
