@@ -29,8 +29,6 @@ RUN pip3 install --no-cache-dir \
 
 COPY speedtest.py config.shlib geckodriver.sh ./
 
-CMD chmod +x ./geckodriver.sh && ./geckodriver.sh
-
 RUN mkdir /export
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint.sh
