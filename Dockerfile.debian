@@ -1,21 +1,19 @@
-FROM node:16.13.2-bullseye-slim
+FROM python:slim-bullseye
 
 RUN  apt-get update \
-     && apt-get install -y procps libxss1 chromium tini cron \
+     && apt-get install --no-install-recommends -y firefox-esr tini cron curl sudo \
      && rm -rf /var/lib/apt/lists/*
 
-# Install Puppeteer under /node_modules so it's available system-wide
-ADD ./puppeteer_build/package.json ./puppeteer_build/yarn.lock /
-RUN yarn install
+RUN pip3 install --no-cache-dir \
+     selenium \
+     python-telegram-bot
 
 # Create app directory
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock index.js  config.cfg.defaults config.shlib ./
+COPY speedtest.py config.shlib geckodriver.sh ./
 
 RUN mkdir /export
-
-RUN yarn install
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
