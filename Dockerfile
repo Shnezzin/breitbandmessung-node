@@ -1,7 +1,5 @@
 FROM python:slim-bullseye
 
-RUN printf "deb http://ftp.de.debian.org/debian sid main " > /etc/apt/sources.list.d/debian.list
-
 RUN  apt-get update \
      && apt-get install --no-install-recommends -y firefox tini cron curl sudo \
      && rm -rf /var/lib/apt/lists/*
