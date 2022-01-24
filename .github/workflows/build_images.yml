@@ -79,7 +79,7 @@ jobs:
           ile: Dockerfile.debian
           tags: |
             shneezin/breitbandmessung:dev
-          platforms: linux/arm/v7, linux/amd64, linux/arm64/v8, inux/arm/v5
+          platforms: linux/arm/v7, linux/amd64, linux/arm64/v8, linux/arm/v5, linux/386
           build-args: |
             COMMIT_SHA=${{ github.sha }}
             BRANCH=${{ env.GIT_BRANCH }}
