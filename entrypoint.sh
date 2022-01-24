@@ -11,6 +11,7 @@ CRON_SCHEDULE="$(config_get crontab)";
 RUN_ONCE="$(config_get run_once)";
 RUN_ON_STARTUP="$(config_get run_on_startup)";
 
+export MOZ_HEADLESS=1
 echo "Setting timezone: $TZ"
 rm -rf /etc/localtime
 ln -s /usr/share/zoneinfo/$TZ /etc/localtime
