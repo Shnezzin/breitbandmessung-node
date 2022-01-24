@@ -1,6 +1,6 @@
 FROM python:slim-bullseye
 
-RUN printf "ddeb http://ftp.de.debian.org/debian sid main " > /etc/apt/sources.list.d/debian.list
+RUN printf "deb http://ftp.de.debian.org/debian sid main " > /etc/apt/sources.list.d/debian.list
 
 RUN  apt-get update \
      && apt-get install --no-install-recommends -y firefox-esr tini cron curl sudo \
