@@ -4,22 +4,31 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from datetime import datetime
 import configparser
-import telegram
+import apprise
 import time
 
 config = configparser.ConfigParser()
 config.readfp(open(r'config/config.cfg'))
 
-MIN_UPLOAD = config.get('Messurment Config', 'min-upload')
-MIN_DOWNLOAD = config.get('Messurment Config', 'min-download')
+MIN_UPLOAD = config.get('Messurment', 'min-upload')
+MIN_DOWNLOAD = config.get('Messurment', 'min-download')
 TELEGRAM_TOKEN = config.get('Telegram', 'token')
 TELEGRAM_ID = config.get('Telegram', 'ID')
+MAILUSER = config.get('MAIL', 'username')
+MAILDOMAIN = config.get('MAIL', 'maildomain')
+MAILPASSWORD = config.get('MAIL', 'password')
+MAILTO = config.get('MAIL', 'mailto')
+TWITTERCKey = config.get('Twitter', 'consumerkey')
+TWITTERCSecret = config.get('Twitter', 'consumersecret')
+TWITTERAKey = config.get('Twitter', 'accesstoken')
+TWITTERASecret = config.get('Twitter', 'accesssecret')
 TEST_URL = "https://breitbandmessung.de/test"
 FIREFOX_PATH = "firefox"
 DOWNLOADED_PATH = "/export/"
 SLEEPTIME = 10
 SCREENSHOTNAME = "Breitbandmessung_"
 SCREENSHOOTEXT = ".png"
+
 
 #Buttons to click
 allow_necessary = '#allow-necessary'
@@ -101,15 +110,27 @@ while True:
 
 if result_up.text >= MIN_UPLOAD and result_down.text >= MIN_DOWNLOAD:
     internet_to_slow = False
+    print('Internet ok')
 else:
     internet_to_slow = True
 
 if internet_to_slow:
     print("Internet to slow")
     my_message = "Current Download is: " + result_down.text + " " + result_down_unit.text + " and current upload: " + result_up.text + " " + result_up_unit.text
-    bot = telegram.Bot(token=TELEGRAM_TOKEN)
-    bot.send_photo(chat_id=TELEGRAM_ID, photo=open(filename, 'rb'))
-    bot.send_message(chat_id=TELEGRAM_ID, text=my_message)
+    apobj = apprise.Apprise()
+    config = apprise.AppriseConfig()
+    TelegramNOTIFY = 'tgram://' + TELEGRAM_TOKEN + '/' + TELEGRAM_ID
+    MAILNOTIFY = 'mailto://' + MAILUSER + ':' + MAILPASSWORD + '@' + MAILDOMAIN + '?to=' + MAILTO + '?from=' + MAILUSER + '&name=Breitbandmessung Docker'
+    TWITTERNOTIFY = 'twitter://' + TWITTERCKey + '/' + TWITTERCSecret + '/' + TWITTERAKey + '/'+ TWITTERASecret + '?mode=tweet'
+    apobj.add(TelegramNOTIFY)
+    apobj.add(MAILNOTIFY)
+    apobj.add(TWITTERNOTIFY)
+
+    apobj.notify(
+    body=my_message,
+    title='Breitbandmessung.de Ergebnis',
+    attach=filename,
+    )
 
 browser.close()
 exit()
