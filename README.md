@@ -14,16 +14,25 @@ crontab=* */2 * * *
 run_once=true
 run_on_startup=true
 
-[Messurment Config]
+[Messurment]
 min-upload=600
 min-download=30
-username=
-password=
 
 [Telegram]
 token=4927531485:lchtmxgr6sm7ia4g0fvbtoslruvgtway6uf
 ID=42681397
 
+[MAIL]
+username=firstname.lastname
+password=supersecret
+maildomain=gmail.com
+mailto=mai.recipient@domain.com
+
+[Twitter]
+consumerkey=
+consumersecret=
+accesstoken=
+accesssecret=
 ```
 
 Create a folder for the measurement results `mkdir messprotokolle`.
