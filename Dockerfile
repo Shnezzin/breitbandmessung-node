@@ -6,7 +6,8 @@ RUN  apt-get update \
 
 RUN pip3 install --no-cache-dir \
      selenium \
-     python-telegram-bot
+     python-telegram-bot \
+     apprise
 
 # Create app directory
 WORKDIR /usr/src/app
