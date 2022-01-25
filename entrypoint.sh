@@ -2,7 +2,6 @@
 set -e
 
 cd /usr/src/app && chmod +x ./geckodriver.sh && ./geckodriver.sh
-sed '/geckodriver/d' /usr/local/bin/docker-entrypoint.sh
 
 source config.shlib;
 
