@@ -26,7 +26,8 @@ if [ -z $url ] ; then
     exit 1
 fi
 
-echo $url
+echo $os
+echo $arch
 
 curl -s -L "$url" | tar -xz
 chmod +x geckodriver
