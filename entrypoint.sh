@@ -31,7 +31,7 @@ if [ "$RUN_ONCE" = "false" ]; then
 printenv | sed 's/^\(.*\)$/export \1/g' > /root/project_env.sh
 echo "Setting cron schedule: ${CRON_SCHEDULE}"
 echo "${CRON_SCHEDULE} /bin/bash -c 'python3 /usr/src/app/speedtest.py' > /proc/1/fd/1 2>/proc/1/fd/2" | crontab -
-crond -f
+cron -f
 else
 python3 /usr/src/app/speedtest.py
 echo "Exiting..."
