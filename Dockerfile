@@ -1,7 +1,7 @@
 FROM python:slim-bullseye
 
 RUN  apt-get update \
-     && apt-get install --no-install-recommends -y firefox-esr tini cron curl sudo gcc \
+     && apt-get install --no-install-recommends -y firefox-esr tini cron curl build-essential libssl-dev libffi-dev python3-dev cargo \
      && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --no-cache-dir \
