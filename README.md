@@ -14,7 +14,7 @@ crontab=* */2 * * *
 run_once=true
 run_on_startup=true
 
-[Messurment]
+[Measurement]
 min-upload=600
 min-download=30
 
@@ -26,7 +26,7 @@ ID=42681397
 username=firstname.lastname
 password=supersecret
 maildomain=gmail.com
-mailto=mai.recipient@domain.com
+mailto=mail.recipient@domain.com
 
 [Twitter]
 consumerkey=T1JJ3T3L2
