@@ -133,9 +133,6 @@ if internet_to_slow:
     my_message = "Current Download is: " + result_down.text + " " + result_down_unit.text + " and current upload: " + result_up.text + " " + result_up_unit.text
     apobj = apprise.Apprise()
     config = apprise.AppriseConfig()
-    #TelegramNOTIFY = 'tgram://' + TELEGRAM_TOKEN + '/' + TELEGRAM_ID
-    #MAILNOTIFY = 'mailto://' + MAILUSER + ':' + MAILPASSWORD + '@' + MAILDOMAIN + '?to=' + MAILTO + '?from=' + MAILUSER + '&name=Breitbandmessung Docker'
-    #TWITTERNOTIFY = 'twitter://' + TWITTERCKey + '/' + TWITTERCSecret + '/' + TWITTERAKey + '/'+ TWITTERASecret + '?mode=tweet'
     apobj.add('tgram://' + TELEGRAM_TOKEN + '/' + TELEGRAM_ID)
     apobj.add('mailto://' + MAILUSER + ':' + MAILPASSWORD + '@' + MAILDOMAIN + '?to=' + MAILTO + '?from=' + MAILUSER + '&name=Breitbandmessung Docker')
     apobj.add('twitter://' + TWITTERCKey + '/' + TWITTERCSecret + '/' + TWITTERAKey + '/'+ TWITTERASecret + '?mode=tweet')
