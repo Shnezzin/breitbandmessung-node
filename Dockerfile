@@ -14,6 +14,8 @@ WORKDIR /usr/src/app
 
 COPY speedtest.py config.shlib geckodriver.sh ./
 
+RUN chmod +x speedtest.py
+
 RUN mkdir /export
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint.sh
