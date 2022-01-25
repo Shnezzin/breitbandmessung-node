@@ -35,13 +35,13 @@ except configparser.MissingSectionHeaderError as e:
 pass
 except configparser.ParsingError as e:
     print(e)  
-finally:
-    TEST_URL = "https://breitbandmessung.de/test"
-    FIREFOX_PATH = "firefox"
-    DOWNLOADED_PATH = "/export/"
-    SLEEPTIME = 10
-    SCREENSHOTNAME = "/export/Breitbandmessung_"
-    SCREENSHOOTEXT = ".png"
+
+TEST_URL = "https://breitbandmessung.de/test"
+FIREFOX_PATH = "firefox"
+DOWNLOADED_PATH = "/export/"
+SLEEPTIME = 10
+SCREENSHOTNAME = "Breitbandmessung_"
+SCREENSHOOTEXT = ".png"
 
 
 #Buttons to click
@@ -116,7 +116,7 @@ while True:
             now = datetime.now()
             current_time = now.strftime("%H_%M_%S")
             current_date = now.strftime("%d_%m_%Y")
-            filename = SCREENSHOTNAME + current_date + "_" + current_time + SCREENSHOOTEXT
+            filename = DOWNLOADED_PATH + SCREENSHOTNAME + current_date + "_" + current_time + SCREENSHOOTEXT
             browser.save_screenshot(filename)
             break
     finally:
