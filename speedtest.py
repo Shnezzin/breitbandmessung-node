@@ -3,38 +3,32 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from datetime import datetime
-from configparser import ConfigParser
 import configparser
 import apprise
 import time
 
+config = configparser.ConfigParser(allow_no_value=True)
+config.read('config/config.cfg')
 
-try:
-    import configparser
-except ImportError: 
-    import ConfigParser as configparser
+if config.has_section('Measurement'):
+        MIN_UPLOAD = config.get('Measurement', 'min-upload')
+        MIN_DOWNLOAD = config.get('Measurement', 'min-download')
 
-config = configparser.ConfigParser()
-config.readfp(open(r'config/config.cfg'))
+if config.has_section('Telegram'):
+        TELEGRAM_TOKEN = config.get('Telegram', 'token')
+        TELEGRAM_ID = config.get('Telegram', 'ID')
 
+if config.has_section('MAIL'):
+        MAILUSER = config.get('MAIL', 'username')
+        MAILDOMAIN = config.get('MAIL', 'maildomain')
+        MAILPASSWORD = config.get('MAIL', 'password')
+        MAILTO = config.get('MAIL', 'mailto')
 
-try:
-    MIN_UPLOAD = config.get('Measurement', 'min-upload')
-    MIN_DOWNLOAD = config.get('Measurement', 'min-download')
-    TELEGRAM_TOKEN = config.get('Telegram', 'token')
-    TELEGRAM_ID = config.get('Telegram', 'ID')
-    MAILUSER = config.get('MAIL', 'username')
-    MAILDOMAIN = config.get('MAIL', 'maildomain')
-    MAILPASSWORD = config.get('MAIL', 'password')
-    MAILTO = config.get('MAIL', 'mailto')
-    TWITTERCKey = config.get('Twitter', 'consumerkey')
-    TWITTERCSecret = config.get('Twitter', 'consumersecret')
-    TWITTERAKey = config.get('Twitter', 'accesstoken')
-    TWITTERASecret = config.get('Twitter', 'accesssecret')
-except configparser.MissingSectionHeaderError as e: 
-pass
-except configparser.ParsingError as e:
-    print(e)  
+if config.has_section('Twitter'):
+        TWITTERCKey = config.get('Twitter', 'consumerkey')
+        TWITTERCSecret = config.get('Twitter', 'consumersecret')
+        TWITTERAKey = config.get('Twitter', 'accesstoken')
+        TWITTERASecret = config.get('Twitter', 'accesssecret')
 
 TEST_URL = "https://breitbandmessung.de/test"
 FIREFOX_PATH = "firefox"
@@ -42,7 +36,6 @@ DOWNLOADED_PATH = "/export/"
 SLEEPTIME = 10
 SCREENSHOTNAME = "Breitbandmessung_"
 SCREENSHOOTEXT = ".png"
-
 
 #Buttons to click
 allow_necessary = '#allow-necessary'
