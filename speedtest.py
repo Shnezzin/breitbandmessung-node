@@ -10,8 +10,8 @@ import time
 config = configparser.ConfigParser()
 config.readfp(open(r'config/config.cfg'))
 
-MIN_UPLOAD = config.get('Messurment', 'min-upload')
-MIN_DOWNLOAD = config.get('Messurment', 'min-download')
+MIN_UPLOAD = config.get('Measurement', 'min-upload')
+MIN_DOWNLOAD = config.get('Measurement', 'min-download')
 TELEGRAM_TOKEN = config.get('Telegram', 'token')
 TELEGRAM_ID = config.get('Telegram', 'ID')
 MAILUSER = config.get('MAIL', 'username')
@@ -119,12 +119,12 @@ if internet_to_slow:
     my_message = "Current Download is: " + result_down.text + " " + result_down_unit.text + " and current upload: " + result_up.text + " " + result_up_unit.text
     apobj = apprise.Apprise()
     config = apprise.AppriseConfig()
-    TelegramNOTIFY = 'tgram://' + TELEGRAM_TOKEN + '/' + TELEGRAM_ID
-    MAILNOTIFY = 'mailto://' + MAILUSER + ':' + MAILPASSWORD + '@' + MAILDOMAIN + '?to=' + MAILTO + '?from=' + MAILUSER + '&name=Breitbandmessung Docker'
-    TWITTERNOTIFY = 'twitter://' + TWITTERCKey + '/' + TWITTERCSecret + '/' + TWITTERAKey + '/'+ TWITTERASecret + '?mode=tweet'
-    apobj.add(TelegramNOTIFY)
-    apobj.add(MAILNOTIFY)
-    apobj.add(TWITTERNOTIFY)
+    #TelegramNOTIFY = 'tgram://' + TELEGRAM_TOKEN + '/' + TELEGRAM_ID
+    #MAILNOTIFY = 'mailto://' + MAILUSER + ':' + MAILPASSWORD + '@' + MAILDOMAIN + '?to=' + MAILTO + '?from=' + MAILUSER + '&name=Breitbandmessung Docker'
+    #TWITTERNOTIFY = 'twitter://' + TWITTERCKey + '/' + TWITTERCSecret + '/' + TWITTERAKey + '/'+ TWITTERASecret + '?mode=tweet'
+    apobj.add('tgram://' + TELEGRAM_TOKEN + '/' + TELEGRAM_ID)
+    apobj.add('mailto://' + MAILUSER + ':' + MAILPASSWORD + '@' + MAILDOMAIN + '?to=' + MAILTO + '?from=' + MAILUSER + '&name=Breitbandmessung Docker')
+    apobj.add('twitter://' + TWITTERCKey + '/' + TWITTERCSecret + '/' + TWITTERAKey + '/'+ TWITTERASecret + '?mode=tweet')
 
     apobj.notify(
     body=my_message,
