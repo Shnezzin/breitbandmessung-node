@@ -29,10 +29,10 @@ maildomain=gmail.com
 mailto=mai.recipient@domain.com
 
 [Twitter]
-consumerkey=
-consumersecret=
-accesstoken=
-accesssecret=
+consumerkey=T1JJ3T3L2
+consumersecret=A1BRTD4JD
+accesstoken=TIiajkdnlazkcOXrIdevi7F
+accesssecret=FDVJaj4jcl8chG3
 ```
 
 Create a folder for the measurement results `mkdir messprotokolle`.
