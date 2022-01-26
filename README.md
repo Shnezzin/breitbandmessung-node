@@ -39,13 +39,13 @@ The Alpine Container is available for the amd64 and arm64 architecture.
 or 
 
 ```
-docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/export/ --name "breitbandmessung" shneezin/breitbandmessung
+docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/export/ --name "breitbandmessung" shneezin/breitbandmessung-node
 ```
 for the Alpine Container. 
 
 If you want to use the Debian Container, use the following command:
 ```
-docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/export/ --name "breitbandmessung" shneezin/breitbandmessung:debian
+docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/export/ --name "breitbandmessung" shneezin/breitbandmessung-node:debian
 ```
 
 To merge the csv files into one, run merge.sh or:
