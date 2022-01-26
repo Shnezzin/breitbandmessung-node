@@ -7,6 +7,7 @@ from datetime import datetime
 import configparser
 import apprise
 import time
+import psutil
 
 config = configparser.ConfigParser(allow_no_value=True)
 config.read('config/config.cfg')
@@ -32,7 +33,7 @@ if config.has_section('Twitter'):
         TWITTERASecret = config.get('Twitter', 'accesssecret')
 
 TEST_URL = "https://breitbandmessung.de/test"
-FIREFOX_PATH = "firefox"
+FIREFOX_PATH = "firefox-esr"
 DOWNLOADED_PATH = "/export/"
 SLEEPTIME = 10
 SCREENSHOTNAME = "Breitbandmessung_"
@@ -51,6 +52,9 @@ download_unit = 'div.col-md-6:nth-child(2) > div:nth-child(1) > div:nth-child(1)
 upload = '.col-md-12 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)'
 upload_unit = '.col-md-12 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)'
 
+for proc in psutil.process_iter():
+    if proc.name() == FIREFOX_PATH:
+        proc.kill()
 
 #Open browser an testpage breitbandmessung.de/test
 print("Open Browser")
