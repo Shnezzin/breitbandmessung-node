@@ -45,9 +45,9 @@ jobs:
         with:
           push: true
           tags: |
-            shneezin/breitbandmessung:latest
-            shneezin/breitbandmessung:alpine
-            shneezin/breitbandmessung:${{ github.sha }}
+            shneezin/breitbandmessung-node:latest
+            shneezin/breitbandmessung-node:alpine
+            shneezin/breitbandmessung-node:${{ github.sha }}
           platforms: linux/amd64, linux/arm64/v8
           build-args: |
             COMMIT_SHA=${{ github.sha }}
@@ -62,8 +62,8 @@ jobs:
           push: true
           file: Dockerfile.debian
           tags: |
-            shneezin/breitbandmessung:debian
-            shneezin/breitbandmessung:${{ github.sha }}
+            shneezin/breitbandmessung-node:debian
+            shneezin/breitbandmessung-node:${{ github.sha }}
           platforms: linux/arm/v7, linux/amd64, linux/arm64/v8
           build-args: |
             COMMIT_SHA=${{ github.sha }}
@@ -78,7 +78,7 @@ jobs:
           push: true
           ile: Dockerfile.debian
           tags: |
-            shneezin/breitbandmessung:dev
+            shneezin/breitbandmessung-node:dev
           platforms: linux/arm/v7, linux/amd64, linux/arm64/v8, linux/arm/v5, linux/386
           build-args: |
             COMMIT_SHA=${{ github.sha }}
