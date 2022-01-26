@@ -30,7 +30,7 @@ For a one-time measurement set the value in the config to true.
 Just run:
 
 ```
-git clone https://github.com/shneezin/breitbandmessung.git && cd breitbandmessung
+git clone https://github.com/shneezin/breitbandmessung-node.git && cd breitbandmessung
 sudo ./create.sh alpine or debian
 ```
 The Debian Container is available for the amd64, arm64 or arm/v7 architecture.
@@ -50,7 +50,7 @@ docker run -d -v $PWD/config/:/usr/src/app/config:rw -v $PWD/messprotokolle:/exp
 
 To merge the csv files into one, run merge.sh or:
 ```
-wget -O - https://raw.githubusercontent.com/shneezin/breitbandmessung/master/merge.sh | bash
+wget -O - https://raw.githubusercontent.com/shneezin/breitbandmessung-node/master/merge.sh | bash
 ```
 
 ## License
