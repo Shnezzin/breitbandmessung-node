@@ -9,7 +9,7 @@ Create a `config` folder and a `config.cfg` file.
 Example config.cfg:
 ```
 timezone=Europe/Berlin
-crontab=* */2 * * *
+crontab=0 */2 * * *
 run_once=true
 run_on_startup=true
 ```
