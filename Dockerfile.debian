@@ -1,7 +1,7 @@
 FROM node:16.16.0-bullseye-slim
 
 COPY install-packages.sh .
-RUN ./install-packages.sh
+RUN chmod +x ./install-packages.sh && ./install-packages.sh
 
 # Install Puppeteer under /node_modules so it's available system-wide
 ADD ./puppeteer_build/package.json ./puppeteer_build/yarn.lock /
