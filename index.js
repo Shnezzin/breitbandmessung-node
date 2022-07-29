@@ -56,9 +56,10 @@ const click_button = async (
       deviceScaleFactor: 1,
     });
 
-    await page._client.send("Page.setDownloadBehavior", {
-      behavior: "allow",
-      downloadPath: EXPORT_PATH,
+    const client = await page.target().createCDPSession();
+    await client .send('Page.setDownloadBehavior', {
+     behavior: 'allow',
+     downloadPath: EXPORT_PATH,
     });
 
     try {
