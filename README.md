@@ -16,6 +16,12 @@ run_on_startup=true
 
 Create a folder for the measurement results `mkdir messprotokolle`.
 
+Make sure you have the most recent docker image:
+
+```
+docker pull shiaky/breitbandmessung:latest
+```
+
 For the cronjob you can use [this website](https://crontab-generator.org/).
 By default the measurement runs every 2 hours.
 
