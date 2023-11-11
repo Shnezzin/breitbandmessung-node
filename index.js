@@ -44,6 +44,8 @@ const click_button = async (
 (async () => {
   try {
     const browser = await puppeteer.launch({
+      // product: "chrome",
+      // executablePath: "/usr/bin/chromium",
       headless: START_HEADLESS,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
@@ -57,13 +59,18 @@ const click_button = async (
     });
 
     const client = await page.target().createCDPSession();
-    await client .send('Page.setDownloadBehavior', {
-     behavior: 'allow',
-     downloadPath: EXPORT_PATH,
+    await client.send("Page.setDownloadBehavior", {
+      behavior: "allow",
+      downloadPath: EXPORT_PATH,
     });
 
     try {
-      await page.goto(`${base_url}/test`);
+      //open website and wait till it is loaded
+      await Promise.all([
+        page.goto(`${base_url}/test`),
+        page.waitForNavigation({ waitUntil: "networkidle2" }),
+      ]);
+
       console.log("PREPARING SPEEDTEST");
 
       // click start test
